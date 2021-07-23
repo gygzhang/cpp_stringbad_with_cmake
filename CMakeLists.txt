@@ -1,3 +1,5 @@
+#https://www.hahack.com/codes/cmake/
+
 cmake_minimum_required(VERSION 3.0.0)
 project(cpp_stringbad VERSION 0.1.0)
 
