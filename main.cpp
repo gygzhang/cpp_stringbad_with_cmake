@@ -33,9 +33,31 @@ void test01(){
     StringBad *st1 = new StringBad("abc");
     //StringBad st3(); will not call the constructor, 
     //otherwise it will be treated as a function declaration.
-    StringBad st3{};
-    string s(typeid(st3).name());
-    cout<<st3<<endl;
+    StringBad st2{};
+    //string s(typeid(st2).name());
+    //cout<<s<<endl;
+
+    StringBad st3("abd");
+    const StringBad st4("abc");
+
+    LOG(int((*st1)==st3));
+    LOG(int((*st1)==st4));
+    LOG(int(st4>st3));
+    LOG(int(st4<st3));
+    
+    LOG(st4[1]);
+    const char* st5="E4M";
+    st3=st5;
+    LOG(st3);
+    int cnt = StringBad::HowMany();
+    LOG("CNT: "<<cnt);
+
+    cin>>st3;
+    LOG(st3);
+
+    A a;
+    LOG(sizeof(a));
+    
     
     //StringBad st2("Hello World!");
     //std::cout<<__LINE__<<"st2: "<<st2<<std::endl;
@@ -48,7 +70,7 @@ void test01(){
     //cout<<st3<<endl;
     //LOG("test01 end!");
     //delete st1;
-    //delete st1;
+    delete st1;
     //cout<<"test01 end!"<<endl;
     
 }

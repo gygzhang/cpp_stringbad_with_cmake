@@ -16,14 +16,38 @@ private:
     char * str;   //pointer to string 
     int len;        // length of the string 
     static int num_str;  //number of the string
+    static const int CINLIM = 80; //limit of cin
 public:
 
     StringBad();
     StringBad(const char *s);
     StringBad(const StringBad &sb);
-    StringBad & operator=(const StringBad &sb);
+    
+
     ~StringBad();
+    int length()const {return len;};
+
+    StringBad & operator=(const StringBad &sb);
+    StringBad & operator=(const char* st);
+
+    char& operator[](int i);
+    //use for const StringBad object
+    const char & operator[](const int i) const;
+    static int HowMany();
+
     //friend function
     friend std::ostream & operator<<(std::ostream &so, const StringBad &st);
+    friend void operator>>(std::istream &is,StringBad &sb);
+    friend bool operator<(const StringBad &sb1, const StringBad &sb2);
+    friend bool operator>(const StringBad &sb1, const StringBad &sb2);
+    //or bool operator==(StringBad &sb1);
+    friend bool operator==(const StringBad &sb1, const StringBad &sb2);
+};
+
+class A{
+    char str;
+    int a;
+    
+    int length()const {return a;};
 };
 
