@@ -27,7 +27,16 @@ StringBad::StringBad(const StringBad &sb){
     this->str = new char[this->len + 1];
     std::strcpy(this->str, sb.str);
     this->num_str ++;
-    LOG("num_str="<<num_str<<", and "<<str<<" object was constructed! ")
+    LOG("num_str="<<num_str<<", and "<<str<<" object was constructed! ");
+}
+
+StringBad::StringBad(double dl){
+    LOG("convert funtion is called, dl is "<<dl);
+    this->str = new char[static_cast<int>(dl)];
+    this->str[static_cast<int>(dl)-1] = '\0';
+    //std::bad_alloc is throwed if len<0
+    this->len = static_cast<int>(dl);
+    this->num_str++;
 }
 
 
@@ -41,6 +50,7 @@ StringBad::~StringBad(){
     delete []str;
     //str = nullptr;
     LOG("deconstruct an object:"<<temp<<" and num_str now is "<<num_str);
+    
     delete []temp;
     //std::cout<<"left! "<<std::endl;
 }

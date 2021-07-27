@@ -6,8 +6,8 @@
 #include<string>
 
 
-
-#define LOG(str) std::cout<<"["<<__FUNCTION__ <<" at line "<<__LINE__<<"]: "<<str<<std::endl;
+#define LOG(str) std::cout<<"["<<__FUNCTION__ <<" at line "<<__LINE__<<"]: "<<str<<std::endl
+//#define LOG(str) std::cout<<"["<<__FUNCTION__ <<" at line "<<__LINE__<<"]: "<<str<<std::endl;
 
 
 class StringBad
@@ -22,6 +22,8 @@ public:
     StringBad();
     StringBad(const char *s);
     StringBad(const StringBad &sb);
+    //convert funtion
+    explicit StringBad(double dl);
     
 
     ~StringBad();

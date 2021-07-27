@@ -2,7 +2,11 @@
 #include <vector>
 
 #include"stringbad.h"
+#include"queuebad.h"
 using namespace std;
+
+
+#define MK_VAR(v1,v2) (v1##v2)
 
 class cls1
 {
@@ -52,8 +56,8 @@ void test01(){
     int cnt = StringBad::HowMany();
     LOG("CNT: "<<cnt);
 
-    cin>>st3;
-    LOG(st3);
+    //cin>>st3;
+    //LOG(st3);
 
     A a;
     LOG(sizeof(a));
@@ -75,10 +79,59 @@ void test01(){
     
 }
 
+void test02(){
+    char* buf = new char[900];
+    
+    StringBad *sb1,*sb2; 
+    sb1 = new (buf) StringBad("sb1");
+    sb2 = new StringBad("sb2");
+    
+    //LOG(sb1<<", "<<sb2<<", "<<reinterpret_cast<uintptr_t>(buf));
+    // buf is 
+    LOG("buf address: "<<static_cast <const void*>(buf));
+    LOG(sb1<<" + "<<sizeof(sb1)<<" = "<<sb1+sizeof(sb1));
+    uintptr_t a = reinterpret_cast<uintptr_t>(&sb1);
+    cout<<reinterpret_cast<uintptr_t>(sb1)<<endl;
+    //LOG((int)*&sb1)
+    //sb1 is a pointer point to a class object(8 of size), sb1+8 means (int)sb1 + 8*16
+    LOG(reinterpret_cast<uintptr_t>(sb1)<<" + "<<(long unsigned)sizeof(*sb1)<<" = "<<reinterpret_cast<uintptr_t>(sb1+sizeof(sb1)));
+    // reinterpret_cast<uintptr_t>(sb1) convert the pointer to unsigned long
+    LOG(reinterpret_cast<uintptr_t>(sb1)<<" + "<<(long unsigned)sizeof(*sb1)<<" = "<<reinterpret_cast<uintptr_t>(sb1)+(sizeof(*sb1)));
+
+
+}
+
+void test03(){
+    //use StringBad(double), is a implicit conversion,
+    //if explicit is used, it is not valid!
+    //StringBad sb = 5.5;
+    //must use this form
+    StringBad sb(5.5);
+}
+
+void test04(){
+    Item it1,it2,it3,it4,it5;
+    QueueBad qb;
+    it1.i = 1; it2.i =2; it3.i = 3; it4.i =4; it5.i =5;
+    qb.enqueue(MK_VAR(it,1));
+    qb.enqueue(MK_VAR(it,2));
+    qb.enqueue(MK_VAR(it,3));
+    qb.enqueue(MK_VAR(it,4));
+    qb.enqueue(MK_VAR(it,5));
+    for (int i = 1; i < 5; i++)
+    {
+        
+        
+    }
+    
+    
+}
 int main()
 {
-    test01();
-    
+    //test01();
+    //test02();
+    //test03();
+    test04();
     //vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
     //msg.assign()
     //cls1 c1(25);
