@@ -170,7 +170,34 @@ void test06(){
     PS1<char, char> cc;
     PS1<char,int> psci;
     PS1<double,int> di;
+
+    using namespace MemberTemplate;
+    MainClass<int> mc1;
+    mc1.fun1(2,2.6);
+
+    using namespace TemplateAsParamter;
+    C2<C1> c2;
+    C3<C1,int,double> c3;
+
+    using namespace FriendAndTemplate;
+    //FriAndTe<int> fati;
+    //FriAndTe<double> fatd;
+
+    //report(fati);
+    //report(fatd);
+    FriAndTeT<int> fatti(21);
+    counts<FriAndTeT<int>>();
+    //counts(fatti);
+    report(fatti);
+
     
+    
+}
+
+void testLC(){
+    Solution solu;
+    vector<int> vc={1,2,4,3};
+    //LOG(solu.maxArea(vc));
 }
 
 void test07(){
@@ -189,6 +216,7 @@ int main()
     //test04();
     //test05();
     test06();
+    testLC();
     //vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
     //msg.assign()
     //cls1 c1(25);
