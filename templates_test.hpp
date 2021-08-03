@@ -354,7 +354,7 @@ public:
     ~FriAndTeT(){cnt--;};
     friend void counts<TT>();
     //<> can be empty, could be deducted
-    friend void report<>(FriAndTeT<TT> &);
+    friend void report<>(FriAndTeT<TT> &tt);
     //OR:
     //friend void report< template<typename TT> >(FriAndTeT<TT> &tt);
 
@@ -367,7 +367,7 @@ template<typename TT>
 int FriAndTeT<TT>::cnt = 0;
 
 template<typename TT> 
-void count()
+void counts()
 {
     LOG("sizeof(FriAndTeT<TT>): "<<sizeof(FriAndTeT<TT>)<<"");
     LOG("FriAndTeT<TT>::cnt   : "<<FriAndTeT<TT>::cnt<<"");
