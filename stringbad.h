@@ -14,7 +14,8 @@ class StringBad
 {
 private:
     char * str;   //pointer to string 
-    int len;        // length of the string 
+    //https://stackoverflow.com/questions/751681/meaning-of-const-last-in-a-function-declaration-of-a-class
+    mutable int len;        // length of the string 
     static int num_str;  //number of the string
     static const int CINLIM = 80; //limit of cin
 public:
@@ -32,8 +33,10 @@ public:
     StringBad & operator=(const StringBad &sb);
     StringBad & operator=(const char* st);
 
+    //同时提供const和非const版本，const对象和非const对象将调用不同版本的函数
     char& operator[](int i);
     //use for const StringBad object
+    //https://stackoverflow.com/questions/751681/meaning-of-const-last-in-a-function-declaration-of-a-class
     const char & operator[](const int i) const;
     static int HowMany();
 

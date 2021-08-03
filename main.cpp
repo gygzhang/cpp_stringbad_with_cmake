@@ -3,6 +3,8 @@
 
 #include"stringbad.h"
 #include"queuebad.h"
+#include "baseandderived.h"
+#include"templates_test.hpp"
 using namespace std;
 
 
@@ -126,12 +128,67 @@ void test04(){
     
     
 }
+
+void test05(){
+    Base b0("B0");
+    BaseDerived d1("DB");
+    //b2 use the Base part of d1 to initialize itself
+    Base b2(d1);
+    b2.ShowName();
+    //virtual funtion works
+    Base *b1 = new Base("B1");
+    b1->ShowName();
+    b1 = &d1;
+    b1->ShowName();
+    
+}
+
+void test06(){
+    Aarry<Stack<int>> asi;
+    Stack1<Stack1<int>> si;
+    Stack1<int> sti;
+    std::cout<<sizeof(sti)<<std::endl;
+    
+    //advantage: compare to new/delete, non-type,it's faster
+    //drawback: expression argument differ, will generate different class
+    NonType<int,10> nt;
+    NonType<int,10> nt1;
+    NonType<int,11> nt2;
+    
+    std::cout<<sizeof(nt)<<typeid(nt2).name()<<std::endl;
+    LOG("typeid(nt)==typeid(nt1) :  "<<(typeid(nt)==typeid(nt1)));
+    LOG("typeid(nt1)==typeid(nt2):  "<<(typeid(nt1)==typeid(nt2)));
+    
+    func1(2,5);
+    func2(2,5);
+    using namespace ES;
+    ES1<int> es1;
+    ES1<const char*> es2;
+    //std::cout<<"NonType<int,11> nt2"<<typeid(nt2)<<std::endl;
+
+    using namespace PartialSpecialization;
+    PS1<char, char> cc;
+    PS1<char,int> psci;
+    PS1<double,int> di;
+    
+}
+
+void test07(){
+    char abc[20];
+    //数组名地址不可修改
+    //abc="abc";
+}
+
+
+
 int main()
 {
     //test01();
     //test02();
     //test03();
-    test04();
+    //test04();
+    //test05();
+    test06();
     //vector<string> msg {"Hello", "C++", "World", "from", "VS Code", "and the C++ extension!"};
     //msg.assign()
     //cls1 c1(25);

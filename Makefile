@@ -145,6 +145,33 @@ main/fast:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+baseandderived.o: baseandderived.cpp.o
+
+.PHONY : baseandderived.o
+
+# target to build an object file
+baseandderived.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/baseandderived.cpp.o
+.PHONY : baseandderived.cpp.o
+
+baseandderived.i: baseandderived.cpp.i
+
+.PHONY : baseandderived.i
+
+# target to preprocess a source file
+baseandderived.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/baseandderived.cpp.i
+.PHONY : baseandderived.cpp.i
+
+baseandderived.s: baseandderived.cpp.s
+
+.PHONY : baseandderived.s
+
+# target to generate assembly for a file
+baseandderived.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/baseandderived.cpp.s
+.PHONY : baseandderived.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -171,6 +198,33 @@ main.s: main.cpp.s
 main.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
 .PHONY : main.cpp.s
+
+queuebad.o: queuebad.cpp.o
+
+.PHONY : queuebad.o
+
+# target to build an object file
+queuebad.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/queuebad.cpp.o
+.PHONY : queuebad.cpp.o
+
+queuebad.i: queuebad.cpp.i
+
+.PHONY : queuebad.i
+
+# target to preprocess a source file
+queuebad.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/queuebad.cpp.i
+.PHONY : queuebad.cpp.i
+
+queuebad.s: queuebad.cpp.s
+
+.PHONY : queuebad.s
+
+# target to generate assembly for a file
+queuebad.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/queuebad.cpp.s
+.PHONY : queuebad.cpp.s
 
 stringbad.o: stringbad.cpp.o
 
@@ -199,6 +253,33 @@ stringbad.cpp.s:
 	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/stringbad.cpp.s
 .PHONY : stringbad.cpp.s
 
+templates_test.o: templates_test.cpp.o
+
+.PHONY : templates_test.o
+
+# target to build an object file
+templates_test.cpp.o:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/templates_test.cpp.o
+.PHONY : templates_test.cpp.o
+
+templates_test.i: templates_test.cpp.i
+
+.PHONY : templates_test.i
+
+# target to preprocess a source file
+templates_test.cpp.i:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/templates_test.cpp.i
+.PHONY : templates_test.cpp.i
+
+templates_test.s: templates_test.cpp.s
+
+.PHONY : templates_test.s
+
+# target to generate assembly for a file
+templates_test.cpp.s:
+	$(MAKE) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/templates_test.cpp.s
+.PHONY : templates_test.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -210,12 +291,21 @@ help:
 	@echo "... main"
 	@echo "... package_source"
 	@echo "... package"
+	@echo "... baseandderived.o"
+	@echo "... baseandderived.i"
+	@echo "... baseandderived.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... queuebad.o"
+	@echo "... queuebad.i"
+	@echo "... queuebad.s"
 	@echo "... stringbad.o"
 	@echo "... stringbad.i"
 	@echo "... stringbad.s"
+	@echo "... templates_test.o"
+	@echo "... templates_test.i"
+	@echo "... templates_test.s"
 .PHONY : help
 
 
